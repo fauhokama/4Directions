@@ -2,17 +2,12 @@
   <div>
     <Screen
       :up="{
-        path: 'left',
+        path: 'leftTest',
         bgColor: 'red',
       }"
-
-
       class="flex"
     >
-      <H1 class="m-auto">
-        Hello
-      </H1>
+      <H1 class="m-auto"> Hello </H1>
     </Screen>
   </div>
 </template>
-

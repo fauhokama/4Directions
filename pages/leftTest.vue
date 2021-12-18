@@ -2,7 +2,7 @@
   <div>
     <Screen
       :right="{
-        path: 'right',
+        path: 'rightTest',
         bgColor: 'blue',
       }"
       class="flex"
@@ -13,4 +13,3 @@
     </Screen>
   </div>
 </template>
-

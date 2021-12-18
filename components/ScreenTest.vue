@@ -32,9 +32,7 @@ export default /* #__PURE__*/ {
   },
   mounted() {
     this.screen = document.getElementById('screen');
-    this.content = document.getElementById('content');
-
-    this.content.style.animation = 'fade-in ease-out 100ms';
+    this.screen.style.animation = 'fade-in ease-out 100ms';
     window.addEventListener('keydown', this.doCommand);
   },
   destroyed() {
@@ -61,8 +59,9 @@ export default /* #__PURE__*/ {
       if (this[direction]) {
         document.body.style.transition = `background-color ${this.time}ms`;
         document.body.style.backgroundColor = this[direction].bgColor;
-        this.content.style.animation = `${direction} ease-out ${this.time}ms, fade-out ease-out ${this.halfTime}ms`;
-        this.content.style.animationFillMode = 'both';
+        // eslint-disable-next-line max-len
+        this.screen.style.animation = `${direction} ease-out ${this.time}ms, fade-out ease-out ${this.halfTime}ms`;
+        this.screen.style.animationFillMode = 'both';
         setTimeout(() => {
           this.$router.push(this[direction].path);
         }, this.time);
@@ -74,12 +73,7 @@ export default /* #__PURE__*/ {
 
 <template>
   <div id="screen">
-    <div
-      id="content"
-      :class="content"
-    >
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>
 
@@ -88,11 +82,6 @@ export default /* #__PURE__*/ {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-}
-
-#content, .slot {
-  width: 100%;
-  height: 100%;
 }
 
 @keyframes right {
